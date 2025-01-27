@@ -57,8 +57,7 @@ const Altcha = forwardRef<{ value: string | null }, AltchaProps>(
         style={{
           "--altcha-max-width": "100%",
         }}
-        debug
-        test
+        challengeurl="http://localhost:3000/challenge"
       ></altcha-widget>
     );
   }
