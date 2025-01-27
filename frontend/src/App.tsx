@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
+import Altcha from "./components/Altcha";
 
 function App() {
+  const altchaRef = useRef<HTMLInputElement>(null);
+
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -22,6 +25,8 @@ function App() {
           onChange={(e) => setPhone(e.target.value)}
           placeholder="Enter your phone number..."
         />
+        <br />
+        <Altcha ref={altchaRef} />
         <button type="submit">Submit</button>
       </form>
     </>
