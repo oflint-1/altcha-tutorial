@@ -31,7 +31,7 @@ app.post("/submit", async (req, res) => {
   // Validate captcha
   const ok = await altcha.verifySolution(
     req.body.captcha,
-    process.env.HMAC_KEY
+    process.env.HMAC_KEY,
   );
 
   // If captcha is false, return failed challenge
