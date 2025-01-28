@@ -5,7 +5,7 @@ This example project demonstrates the steps taken in the tutorial found here. Th
 Below are instructions to setup both the backend and frontend of this demo application. Each section must be completed in a separate terminal tab. When both are running, navigate to `http://localhost:5173` to see the example form with Altcha included.
 
 ### Backend
-1. Rename `backend/.env.example` -> `backend/.env`
+1. Rename `backend/.env.example` -> `backend/.env`, making sure to set your own HMAC_KEY
 2. `cd backend && npm install`
 3. `node index.js`
 

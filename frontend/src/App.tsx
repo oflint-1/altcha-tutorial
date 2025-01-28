@@ -8,6 +8,32 @@ function App() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  const [result, setResult] = useState("");
+
+  const submitHandler = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    e.preventDefault();
+
+    return fetch("http://localhost:3000/submit", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        phone,
+        captcha: altchaRef.current?.value,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setResult(data.message);
+      });
+  };
+
   return (
     <>
       <form>
@@ -27,7 +53,10 @@ function App() {
         />
         <br />
         <Altcha ref={altchaRef} />
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={submitHandler}>
+          Submit
+        </button>
+        <label>Response: {result}</label>
       </form>
     </>
   );
