@@ -56,7 +56,12 @@ function App() {
         <button type="submit" onClick={submitHandler}>
           Submit
         </button>
-        <label>Response: {result}</label>
+        <label>
+          Response:{" "}
+          <span className={result === "Captcha completed" ? "green" : "red"}>
+            {result}
+          </span>
+        </label>
       </form>
     </>
   );
